@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Free GMB Audit Tool — NORTHWIRE",
+  title: "Free GMB Audit Tool — Acme Agency",
   description:
     "Run a free Google Business Profile audit in 60 seconds. See exactly where your local listing is losing rankings, reviews, and clicks — and how to fix it.",
 };
@@ -43,14 +43,14 @@ const FLY_EMBED_SCRIPT = `(function() {
 })();`;
 
 const checks = [
-  "Listing completeness",
-  "Category accuracy",
-  "Review velocity & sentiment",
-  "Photo freshness",
-  "Q&A coverage",
-  "Post cadence",
-  "NAP consistency",
-  "Map-pack ranking signals",
+  { t: "Listing completeness", icon: "📝", grad: "from-indigo-500 to-purple-500" },
+  { t: "Category accuracy", icon: "🏷️", grad: "from-purple-500 to-pink-500" },
+  { t: "Review velocity", icon: "⭐", grad: "from-amber-500 to-orange-500" },
+  { t: "Photo freshness", icon: "📸", grad: "from-pink-500 to-rose-500" },
+  { t: "Q&A coverage", icon: "💬", grad: "from-blue-500 to-cyan-500" },
+  { t: "Post cadence", icon: "📣", grad: "from-emerald-500 to-teal-500" },
+  { t: "NAP consistency", icon: "📍", grad: "from-cyan-500 to-blue-500" },
+  { t: "Map-pack signals", icon: "🗺️", grad: "from-rose-500 to-orange-500" },
 ];
 
 const faqs = [
@@ -81,6 +81,7 @@ export default function GmbAuditPage() {
         <EmbedSection />
         <Checks />
         <FAQ />
+        <BottomCTA />
       </main>
       <SiteFooter />
       <Script id="fly-embed-gmb-audit-script" strategy="afterInteractive">
@@ -92,86 +93,75 @@ export default function GmbAuditPage() {
 
 function Hero() {
   return (
-    <section className="relative border-b-2 border-line">
-      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-12 md:pt-20 md:pb-16">
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 hero-bg" aria-hidden />
+      <div className="absolute inset-0 dot-grid opacity-40" aria-hidden />
+
+      <div className="relative mx-auto max-w-7xl px-6 pt-12 pb-12 md:pt-16 md:pb-16">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-widest text-foreground/60 hover:text-foreground"
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-foreground"
         >
-          ← Back to NORTHWIRE
+          <span aria-hidden>←</span> Back to Acme Agency
         </Link>
 
-        <div className="mt-8 flex items-center gap-3">
-          <span className="h-2 w-2 bg-accent" />
-          <span className="eyebrow">Tool · Free · No login</span>
-        </div>
-
-        <h1 className="mt-6 font-serif text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight">
-          The 60-second
-          <br />
-          <span className="bg-accent px-2 italic">GMB</span> audit.
-        </h1>
-
-        <div className="mt-10 grid gap-12 md:grid-cols-[1.6fr_1fr] md:items-end">
-          <p className="max-w-xl text-lg leading-relaxed text-foreground/80">
+        <div className="mx-auto mt-8 max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-4 py-1.5 text-xs font-medium text-indigo-700 shadow-sm backdrop-blur-sm">
+            <span aria-hidden>✦</span> AI-powered audit · 100% free
+          </span>
+          <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+            The 60-second{" "}
+            <span className="gradient-text shimmer-text">GMB audit.</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
             Drop in your business name. We&apos;ll surface exactly where your Google
             Business Profile is leaking rankings, reviews, and clicks — and hand you a
             prioritized fix list.
           </p>
-          <div className="flex flex-col items-start gap-3">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center border-2 border-line bg-background font-mono text-sm font-semibold">
-                01
-              </span>
-              <span className="grid h-10 w-10 place-items-center border-2 border-line bg-background font-mono text-sm font-semibold">
-                02
-              </span>
-              <span className="grid h-10 w-10 place-items-center border-2 border-line bg-accent font-mono text-sm font-semibold">
-                03
-              </span>
-            </div>
-            <p className="font-mono text-xs uppercase tracking-wider text-foreground/60">
-              Type → Scan → Fix list. That&apos;s it.
-            </p>
+
+          <div className="mt-7 flex items-center justify-center gap-6 text-xs text-muted">
+            <span className="flex items-center gap-1.5">
+              <span className="text-emerald-500">✓</span> No login
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-emerald-500">✓</span> No card
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-emerald-500">✓</span> Results in 60s
+            </span>
           </div>
         </div>
       </div>
-      <CornerTicks />
     </section>
-  );
-}
-
-function CornerTicks() {
-  return (
-    <>
-      <span className="pointer-events-none absolute left-4 top-4 font-mono text-[10px] uppercase tracking-widest text-foreground/40">
-        TOOL · GMB-AUDIT
-      </span>
-      <span className="pointer-events-none absolute right-4 top-4 font-mono text-[10px] uppercase tracking-widest text-foreground/40">
-        v1.4
-      </span>
-    </>
   );
 }
 
 function EmbedSection() {
   return (
-    <section className="border-b-2 border-line bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 py-16">
-        <div className="flex flex-wrap items-end justify-between gap-3 mb-6">
-          <p className="eyebrow text-foreground/60">§ Live tool</p>
-          <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-            Powered by Fly Social
-          </p>
+    <section className="relative">
+      <div className="mx-auto max-w-5xl px-6 pb-16">
+        <div className="card relative overflow-hidden p-3 md:p-4">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-pink-50" />
+          <div className="flex items-center justify-between border-b border-border-soft px-3 pb-3 md:px-4">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
+            </div>
+            <span className="text-xs font-medium text-muted">
+              acmeagency.com / tools / gmb-audit
+            </span>
+            <span className="flex items-center gap-1.5 text-xs text-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-ring" />
+              Live
+            </span>
+          </div>
+          <div id="fly-embed-gmb-audit" className="rounded-xl" />
         </div>
 
-        <div className="border-2 border-line bg-background p-2 md:p-4">
-          <div id="fly-embed-gmb-audit" />
-        </div>
-
-        <p className="mt-4 text-center font-mono text-xs uppercase tracking-widest text-foreground/50">
+        <p className="mt-4 text-center text-xs text-muted">
           Tool not loading? Disable ad-blockers or{" "}
-          <Link href="#contact" className="underline underline-offset-2">
+          <Link href="/#contact" className="text-indigo-700 underline-offset-4 hover:underline">
             email us directly
           </Link>
           .
@@ -183,44 +173,36 @@ function EmbedSection() {
 
 function Checks() {
   return (
-    <section className="border-b-2 border-line">
-      <div className="mx-auto max-w-[1400px] px-6 py-24">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <p className="eyebrow text-foreground/60">§ What we check</p>
-            <h2 className="mt-3 font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
-              Eight signals.
-              <br />
-              <span className="italic">One score.</span>
-            </h2>
-          </div>
-          <p className="hidden max-w-sm text-foreground/70 md:block">
-            Each signal is scored 0–10 against benchmarks from 12k+ audits we&apos;ve run.
-            The lowest scores become your priority fix list.
+    <section className="relative bg-surface/50">
+      <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
+            What we check
+          </span>
+          <h2 className="mt-5 text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
+            Eight signals. <span className="gradient-text">One score.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
+            Each signal is scored 0–10 against benchmarks from 12k+ audits we&apos;ve
+            run. The lowest scores become your priority fix list.
           </p>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 border-2 border-line md:grid-cols-2 lg:grid-cols-4">
-          {checks.map((c, i) => (
-            <li
-              key={c}
-              className={`flex items-start gap-4 p-6 ${
-                i % 4 !== 3 ? "lg:border-r-2 lg:border-line" : ""
-              } ${i % 2 !== 1 ? "md:border-r-2 md:border-line" : ""} ${
-                i < checks.length - 1 ? "border-b-2 border-line" : ""
-              } ${
-                i >= checks.length - 4 ? "lg:border-b-0" : ""
-              } ${
-                i >= checks.length - 2 ? "md:border-b-0" : ""
-              }`}
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {checks.map((c) => (
+            <div
+              key={c.t}
+              className="card group p-5 transition-transform hover:-translate-y-1"
             >
-              <span className="font-mono text-xs text-foreground/50 mt-1">
-                /{String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="font-serif text-2xl tracking-tight">{c}</span>
-            </li>
+              <div
+                className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${c.grad} text-lg text-white shadow-md`}
+              >
+                {c.icon}
+              </div>
+              <p className="mt-4 text-base font-semibold tracking-tight">{c.t}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
@@ -228,34 +210,70 @@ function Checks() {
 
 function FAQ() {
   return (
-    <section id="faq" className="border-b-2 border-line">
-      <div className="mx-auto max-w-[1400px] px-6 py-24">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.6fr]">
-          <div>
-            <p className="eyebrow text-foreground/60">§ FAQ</p>
-            <h2 className="mt-3 font-serif text-4xl md:text-6xl leading-[0.95] tracking-tight">
-              The fine
-              <br />
-              <span className="italic">print.</span>
-            </h2>
-          </div>
+    <section id="faq" className="relative">
+      <div className="mx-auto max-w-4xl px-6 py-24">
+        <div className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
+            FAQ
+          </span>
+          <h2 className="mt-5 text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
+            The <span className="gradient-text">fine print.</span>
+          </h2>
+        </div>
 
-          <dl className="border-t-2 border-line">
-            {faqs.map((f, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-[40px_1fr] gap-6 border-b-2 border-line py-6"
-              >
-                <dt className="font-mono text-xs text-foreground/50">
-                  /{String(i + 1).padStart(2, "0")}
-                </dt>
-                <div>
-                  <p className="font-serif text-2xl tracking-tight">{f.q}</p>
-                  <p className="mt-3 text-foreground/80">{f.a}</p>
-                </div>
-              </div>
-            ))}
-          </dl>
+        <dl className="mt-12 space-y-4">
+          {faqs.map((f, i) => (
+            <div key={i} className="card p-6 md:p-7">
+              <dt className="flex items-start gap-3 text-lg font-semibold tracking-tight">
+                <span className="gradient-text text-sm font-bold tracking-wider">
+                  Q.0{i + 1}
+                </span>
+                {f.q}
+              </dt>
+              <dd className="mt-3 pl-12 text-sm leading-relaxed text-muted md:text-base">
+                {f.a}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
+function BottomCTA() {
+  return (
+    <section className="relative">
+      <div className="mx-auto max-w-5xl px-6 pb-12">
+        <div
+          className="relative overflow-hidden rounded-[2rem] p-10 md:p-14"
+          style={{
+            background:
+              "linear-gradient(135deg, #4f46e5 0%, #8b5cf6 55%, #ec4899 100%)",
+          }}
+        >
+          <div
+            className="pointer-events-none absolute inset-0 opacity-30"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 0%, rgba(255,255,255,0.25) 0%, transparent 50%), radial-gradient(circle at 80% 100%, rgba(255,255,255,0.25) 0%, transparent 50%)",
+            }}
+          />
+          <div className="relative text-center">
+            <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
+              Don&apos;t want to fix it yourself?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-white/80 md:text-lg">
+              Hand us the report. We&apos;ll fix every issue and turn your listing into a
+              compounding lead engine.
+            </p>
+            <Link
+              href="/#contact"
+              className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Talk to Acme Agency <span aria-hidden>→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
