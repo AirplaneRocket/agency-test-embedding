@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const FLY_EMBED_SCRIPT = `(function() {
   var iframe = document.createElement('iframe');
-  iframe.src = 'https://www.fly-social.com/embed/acme-agency/gmb-audit';
+  iframe.src = 'https://staging.fly-social.com/embed/meghana-kitchen-4/gmb-audit?lang=sk';
   iframe.style.cssText = 'width:100%;height:800px;border:none;border-radius:8px;';
   iframe.allow = 'clipboard-write';
   document.getElementById('fly-embed-gmb-audit').appendChild(iframe);
