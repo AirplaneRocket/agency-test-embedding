@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const FLY_EMBED_SCRIPT = `(function() {
   var iframe = document.createElement('iframe');
-  iframe.src = 'https://staging.fly-social.com/embed/just4-manu1-leads/gmb-audit';
+  iframe.src = 'https://staging.fly-social.com/embed/harsimar407-leads/gmb-audit';
   iframe.style.cssText = 'width:100%;height:800px;border:none;border-radius:8px;';
   iframe.allow = 'clipboard-write';
   document.getElementById('fly-embed-gmb-audit').appendChild(iframe);
