@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const FLY_EMBED_SCRIPT = `(function() {
   var iframe = document.createElement('iframe');
-  iframe.src = 'https://staging.fly-social.com/embed/harsimar407-leads/gmb-audit';
+  iframe.src = 'https://staging.fly-social.com/embed/just4-manu1-leads/gmb-audit';
   iframe.style.cssText = 'width:100%;height:800px;border:none;border-radius:8px;';
   iframe.allow = 'clipboard-write';
   document.getElementById('fly-embed-gmb-audit').appendChild(iframe);
@@ -43,7 +43,11 @@ const FLY_EMBED_SCRIPT = `(function() {
 })();`;
 
 const checks = [
-  { t: "Listing completeness", icon: "📝", grad: "from-indigo-500 to-purple-500" },
+  {
+    t: "Listing completeness",
+    icon: "📝",
+    grad: "from-indigo-500 to-purple-500",
+  },
   { t: "Category accuracy", icon: "🏷️", grad: "from-purple-500 to-pink-500" },
   { t: "Review velocity", icon: "⭐", grad: "from-amber-500 to-orange-500" },
   { t: "Photo freshness", icon: "📸", grad: "from-pink-500 to-rose-500" },
@@ -114,9 +118,9 @@ function Hero() {
             <span className="gradient-text shimmer-text">GMB audit.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-            Drop in your business name. We&apos;ll surface exactly where your Google
-            Business Profile is leaking rankings, reviews, and clicks — and hand you a
-            prioritized fix list.
+            Drop in your business name. We&apos;ll surface exactly where your
+            Google Business Profile is leaking rankings, reviews, and clicks —
+            and hand you a prioritized fix list.
           </p>
 
           <div className="mt-7 flex items-center justify-center gap-6 text-xs text-muted">
@@ -161,7 +165,10 @@ function EmbedSection() {
 
         <p className="mt-4 text-center text-xs text-muted">
           Tool not loading? Disable ad-blockers or{" "}
-          <Link href="/#contact" className="text-indigo-700 underline-offset-4 hover:underline">
+          <Link
+            href="/#contact"
+            className="text-indigo-700 underline-offset-4 hover:underline"
+          >
             email us directly
           </Link>
           .
@@ -183,8 +190,8 @@ function Checks() {
             Eight signals. <span className="gradient-text">One score.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-            Each signal is scored 0–10 against benchmarks from 12k+ audits we&apos;ve
-            run. The lowest scores become your priority fix list.
+            Each signal is scored 0–10 against benchmarks from 12k+ audits
+            we&apos;ve run. The lowest scores become your priority fix list.
           </p>
         </div>
 
@@ -199,7 +206,9 @@ function Checks() {
               >
                 {c.icon}
               </div>
-              <p className="mt-4 text-base font-semibold tracking-tight">{c.t}</p>
+              <p className="mt-4 text-base font-semibold tracking-tight">
+                {c.t}
+              </p>
             </div>
           ))}
         </div>
@@ -264,8 +273,8 @@ function BottomCTA() {
               Don&apos;t want to fix it yourself?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-white/80 md:text-lg">
-              Hand us the report. We&apos;ll fix every issue and turn your listing into a
-              compounding lead engine.
+              Hand us the report. We&apos;ll fix every issue and turn your
+              listing into a compounding lead engine.
             </p>
             <Link
               href="/#contact"
